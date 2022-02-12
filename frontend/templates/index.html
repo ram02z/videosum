@@ -5,21 +5,26 @@
         <title>Video Summarizer</title>
     </head>
     <body>
-    <div>
-        <h1>Video Summarizer</h1>
+    <div id="wrapper">
+        <div>
+            <h1>Video Summarizer</h1>
+        </div>
+        <div>
+            <form action="transcribe.html" method="post">
+                <div>
+                    <input type="file" id="video" name="FileName" onchange="selectedvideo(this)">
+                </div>
+                <div>
+                    <input type="submit" onclick="selectedvideo()">
+                </div>
+            </form>
+        </div>
+        <div>
+            <video id="videoplayer" width="320" height="240" controls>
+                <source id="source" src="source" type="video/mp4">
+            </video>
+        </div>
     </div>
-    <div>
-        <form action="">
-            <input type="file" id="video" name="FileName" onchange="selectedvideo(this)">
-            <br>
-            <input type="submit" onclick="playvideo()">
-        </form>
-    </div>
-
-    <video id="videoplayer" width="320" height="240" controls>
-        <source id="source" src="source" type="video/mp4">
-    </video>
-
     <script>
         function selectedvideo(self) {
             var file = self.files[0];
