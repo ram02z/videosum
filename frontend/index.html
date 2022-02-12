@@ -24,7 +24,6 @@
           method="post"
           enctype="multipart/form-data">
         <div>
-            <p>*Insert info on project here maybe*</p>
             <h2>Choose A File To Transcript: </h2>
         </div>
 
@@ -40,13 +39,25 @@
               onchange="selectedvideo(this)"
             />
             <input class="btn btn-primary" type="submit" onclick="selectedvideo()" />
+          
           </div>
-          <div>
-        </div>
+        </form>
       </div>
     </div>
-
-        </form>
+    <div class="row">
+      <div class="col">
+        <div class="bg-secondary p-2" style="--bs-bg-opacity: .5;">
+        <u><h2>Transcript</h2></u>
+        <p>*Put code for outputing transcript text here*</p>
+      </div>
+      </div>
+      <div class="col">
+        <div class="bg-secondary p-2" style="--bs-bg-opacity: .5;">
+        <u><h2>Summarisation</h2></u>
+        <p>*Put code for outputing submission text here*</p>
+      </div>
+      </div>
+    </div>
       </div>
     </div>
   </body>
