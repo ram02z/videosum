@@ -28,7 +28,7 @@ def upload_file():
     file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
     uploaded_file.save(file_path)
 
-    wav_file = get_wav("test.mp4")
+    wav_file = get_wav(file_path)
     transcript = get_transcript(str(wav_file))
     sum_transcript = summarise_transcript(Summarizer(), transcript)
     for k, v in sum_transcript.items():
