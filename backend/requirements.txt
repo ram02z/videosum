@@ -9,6 +9,7 @@ cymem==2.0.6
 ffmpeg-python==0.2.0
 filelock==3.4.2
 Flask==2.0.2
+Flask-Cors==3.0.10
 future==0.18.2
 huggingface-hub==0.4.0
 idna==3.3
