@@ -26,7 +26,7 @@ def get_wav(filename: str) -> Path:
         raise MissingAudioStream(f"{filename} has no audio stream")
 
     audio = ffmpeg.input(filename).audio
-    stream = ffmpeg.output(audio, audio_path)
+    stream = ffmpeg.output(audio, str(audio_path))
     ffmpeg.run(stream)
 
     return audio_path
