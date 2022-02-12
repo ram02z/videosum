@@ -25,7 +25,7 @@ def upload_file():
     if file_ext not in app.config["UPLOAD_EXTENSIONS"]:
         return jsonify(message="File is the wrong format"), 400
 
-    file_path = os.path.join(app.config["UPLOAD_EXTENSIONS"], filename)
+    file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
     uploaded_file.save(file_path)
 
     wav_file = get_wav("test.mp4")
@@ -34,6 +34,8 @@ def upload_file():
     for k, v in sum_transcript.items():
         print(k)
         print(v)
+
+    return sum_transcript, 200
 
 
 if __name__ == "__main__":
