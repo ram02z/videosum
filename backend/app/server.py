@@ -12,7 +12,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 app.config["UPLOAD_FOLDER"] = gettempdir()
-app.config["UPLOAD_EXTENSIONS"] = [".mp4", "mov"]
+app.config["UPLOAD_EXTENSIONS"] = [".mp4", ".mov", ".avi", ".m4v", ".mkv"]
 
 
 @app.route("/upload", methods=["POST"])
@@ -31,11 +31,8 @@ def upload_file():
     wav_file = get_wav(file_path)
     transcript = get_transcript(str(wav_file))
     sum_transcript = summarise_transcript(Summarizer(), transcript)
-    for k, v in sum_transcript.items():
-        print(k)
-        print(v)
 
-    return sum_transcript, 200
+    return jsonify(main=transcript, summarized=sum_transcript), 200
 
 
 if __name__ == "__main__":
