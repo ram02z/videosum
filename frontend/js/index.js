@@ -19,23 +19,27 @@ function selectedvideo(self) {
 }
 
 async function uploadVideo(e) {
+  $("loading-spinner").style.display = "block";
   e.preventDefault();
   const data = new FormData();
   data.append("file", e.target.file.files[0]);
+  data.append("ratio", e.target.ratio.value);
   await fetch(`${API}/upload`, { method: "POST", body: data })
     .then((r) => r.json())
     .then((data) => {
+      $("loading-spinner").style.display = "none";
       $("transcript").textContent = "";
-      for (var timestamp in data.main) {
-        $("transcript").textContent += data.main[timestamp];
-      }
+      Object.entries(data.main).forEach(([k, v]) => {
+        $("transcript").innerHTML += `<b>${time}:</b> ${v}<br><br>`;
+      });
       $("summary").textContent = "";
-      for (var timestamp in data.summarized) {
-        $("summary").textContent += data.summarized[timestamp]
-      }
+      Object.entries(data.summarized).forEach(([k, v]) => {
+        $("summary").innerHTML += `<b>${time}:</b> ${v}<br><br>`;
+      });
       console.log(data);
     })
     .catch((e) => {
+      $("loading-spinner").style.display = "none";
       console.log(e);
     });
 }

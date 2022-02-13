@@ -18,6 +18,7 @@ app.config["UPLOAD_EXTENSIONS"] = [".mp4", ".mov", ".avi", ".m4v", ".mkv"]
 @app.route("/upload", methods=["POST"])
 def upload_file():
     uploaded_file = request.files["file"]
+    ratio = request.form["ratio"]
     if uploaded_file.filename is None:
         return jsonify(message="Filename is missing"), 400
     filename = secure_filename(uploaded_file.filename)
@@ -30,7 +31,7 @@ def upload_file():
 
     wav_file = get_wav(file_path)
     transcript = get_transcript(str(wav_file))
-    sum_transcript = summarise_transcript(Summarizer(), transcript)
+    sum_transcript = summarise_transcript(Summarizer(), transcript, ratio=float(ratio))
 
     return jsonify(main=transcript, summarized=sum_transcript), 200
 
