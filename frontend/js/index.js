@@ -24,6 +24,17 @@ async function uploadVideo(e) {
   data.append("file", e.target.file.files[0]);
   await fetch(`${API}/upload`, { method: "POST", body: data })
     .then((r) => r.json())
+    .then((data) => {
+      $("transcript").textContent = "";
+      for (var timestamp in data.main) {
+        $("transcript").textContent += data.main[timestamp];
+      }
+      $("summary").textContent = "";
+      for (var timestamp in data.summarized) {
+        $("summary").textContent += data.summarized[timestamp]
+      }
+      console.log(data);
+    })
     .catch((e) => {
       console.log(e);
     });
