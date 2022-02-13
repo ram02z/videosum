@@ -30,11 +30,11 @@ async function uploadVideo(e) {
       $("loading-spinner").style.display = "none";
       $("transcript").textContent = "";
       Object.entries(data.main).forEach(([k, v]) => {
-        $("transcript").innerHTML += `<b>${time}:</b> ${v}<br><br>`;
+        $("transcript").innerHTML += `<b>${k}:</b> ${v}<br><br>`;
       });
       $("summary").textContent = "";
       Object.entries(data.summarized).forEach(([k, v]) => {
-        $("summary").innerHTML += `<b>${time}:</b> ${v}<br><br>`;
+        $("summary").innerHTML += `<b>${k}:</b> ${v}<br><br>`;
       });
       console.log(data);
     })
