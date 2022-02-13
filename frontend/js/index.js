@@ -27,11 +27,11 @@ async function uploadVideo(e) {
     .then((data) => {
       $("transcript").textContent = "";
       for (var timestamp in data.main) {
-        $("transcript").textContent += data.main[timestamp];
+        $("transcript").textContent += "" + timestamp + ": " + data.main[timestamp] + "\n";
       }
       $("summary").textContent = "";
       for (var timestamp in data.summarized) {
-        $("summary").textContent += data.summarized[timestamp]
+        $("summary").textContent +="" + timestamp + ": " +  data.summarized[timestamp] + "\n";
       }
       console.log(data);
     })
