@@ -1,10 +1,9 @@
 # vidsum
 
-VidSum is an online video summarisation tool that allows you to import videos and recieve a full transcript and summarisation of the video.
+VidSum is an online video summarisation tool that allows you to import videos and recieve a full transcript and summarisation of the video. 
 
-It is especially useful when students are behind on lectures and want to summarise what they have missed.
+Never again will you watch that boring lecturer. You can now summarise the whole video in just a few clicks.
 
-Never spend hours watching a boring video again.
 
 ## Requirements
 
